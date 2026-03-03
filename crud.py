@@ -50,7 +50,7 @@ def get_books_list(
 ) -> Sequence[models.Book]:
     stmt = select(models.Book)
     if author_id is not None:
-        stmt = stmt.where(models.Author.id == author_id)
+        stmt = stmt.where(models.Book.author_id == author_id)
     return db.scalars(stmt.offset(skip).limit(limit))
 
 
